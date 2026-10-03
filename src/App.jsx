@@ -102,6 +102,20 @@ export default function App() {
               </label>
             ))}
           </div>
+
+          <h2 className="mt-7 mb-2.5 font-semibold">Current colors</h2>
+          <div className="flex flex-wrap gap-4 text-sm">
+            <p>
+              Background: <strong>{theme.bg}</strong>
+            </p>
+            <p>
+              Text: <strong>{theme.text}</strong>
+            </p>
+            <p>
+              Accent: <strong>{theme.accent}</strong>
+            </p>
+          </div>
+
           <h2 className="mt-7 mb-2.5 font-semibold">Reset</h2>
           <button
             onClick={() => setTheme(THEMES[0])}
