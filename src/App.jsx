@@ -55,7 +55,11 @@ export default function App() {
               <button
                 key={t.name}
                 onClick={() => setTheme(t)}
-                style={{ background: t.bg, color: t.text, borderColor: t.accent }}
+                style={{
+                  background: t.bg,
+                  color: t.text,
+                  borderColor: t.accent,
+                }}
                 className={
                   "flex cursor-pointer items-center gap-2 rounded-xl border-2 px-3 py-2.5 " +
                   (t.name === theme.name
@@ -98,6 +102,13 @@ export default function App() {
               </label>
             ))}
           </div>
+          <h2 className="mt-7 mb-2.5 font-semibold">Reset</h2>
+          <button
+            onClick={() => setTheme(THEMES[0])}
+            className="cursor-pointer rounded-xl bg-red-500 px-5 py-2.5 font-semibold text-white hover:bg-red-600"
+          >
+            Reset to default
+          </button>
         </main>
       </div>
     </div>
