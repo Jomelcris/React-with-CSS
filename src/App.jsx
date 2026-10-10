@@ -1,38 +1,8 @@
 import { useState } from "react";
+import Author from "./models/Author.js";
+import { defaultPalette } from "./models/Palette.js";
 
-class Theme {
-  constructor(name, bg, text, accent) {
-    this.name = name;
-    this.bg = bg;
-    this.text = text;
-    this.accent = accent;
-  }
-}
-
-class Palette {
-  constructor(name, themes) {
-    this.name = name;
-    this.themes = themes;
-  }
-}
-
-class Author {
-  constructor(name, section) {
-    this.name = name;
-    this.section = section;
-  }
-}
-
-const palette = new Palette("Default palette", [
-  new Theme("Light", "#ffffff", "#1a1a1a", "#2563eb"),
-  new Theme("Dark", "#16181d", "#eceff4", "#7aa2f7"),
-  new Theme("Ocean", "#0b3d4f", "#e6f6fa", "#4fd1c5"),
-  new Theme("Sunset", "#fff1e6", "#4a1d0f", "#e8590c"),
-  new Theme("Forest", "#1f3a2b", "#ecf5ea", "#9be37a"),
-  new Theme("Lavender", "#f1ecff", "#2d2250", "#7c4dff"),
-]);
-
-const THEMES = palette.themes;
+const THEMES = defaultPalette.themes;
 
 const author = new Author("Jomel Cris Basillote", "G11");
 
