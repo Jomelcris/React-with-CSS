@@ -1,20 +1,44 @@
 import { useState } from "react";
 
-// Each theme is just three colors: background, text, and accent.
-const THEMES = [
-  { name: "Light", bg: "#ffffff", text: "#1a1a1a", accent: "#2563eb" },
-  { name: "Dark", bg: "#16181d", text: "#eceff4", accent: "#7aa2f7" },
-  { name: "Ocean", bg: "#0b3d4f", text: "#e6f6fa", accent: "#4fd1c5" },
-  { name: "Sunset", bg: "#fff1e6", text: "#4a1d0f", accent: "#e8590c" },
-  { name: "Forest", bg: "#1f3a2b", text: "#ecf5ea", accent: "#9be37a" },
-  { name: "Lavender", bg: "#f1ecff", text: "#2d2250", accent: "#7c4dff" },
-];
+class Theme {
+  constructor(name, bg, text, accent) {
+    this.name = name;
+    this.bg = bg;
+    this.text = text;
+    this.accent = accent;
+  }
+}
+
+class Palette {
+  constructor(name, themes) {
+    this.name = name;
+    this.themes = themes;
+  }
+}
+
+class Author {
+  constructor(name, section) {
+    this.name = name;
+    this.section = section;
+  }
+}
+
+const palette = new Palette("Default palette", [
+  new Theme("Light", "#ffffff", "#1a1a1a", "#2563eb"),
+  new Theme("Dark", "#16181d", "#eceff4", "#7aa2f7"),
+  new Theme("Ocean", "#0b3d4f", "#e6f6fa", "#4fd1c5"),
+  new Theme("Sunset", "#fff1e6", "#4a1d0f", "#e8590c"),
+  new Theme("Forest", "#1f3a2b", "#ecf5ea", "#9be37a"),
+  new Theme("Lavender", "#f1ecff", "#2d2250", "#7c4dff"),
+]);
+
+const THEMES = palette.themes;
+
+const author = new Author("Jomel Cris Basillote", "G11");
 
 export default function App() {
   const [theme, setTheme] = useState(THEMES[0]);
 
-  // The theme colors become CSS variables that Tailwind classes read,
-  // e.g. bg-[var(--bg)].
   const pageStyle = {
     "--bg": theme.bg,
     "--text": theme.text,
@@ -123,6 +147,10 @@ export default function App() {
           >
             Reset to default
           </button>
+
+          <p className="mt-8 text-sm">
+            Made by {author.name} ({author.section})
+          </p>
         </main>
       </div>
     </div>
